@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_admin","Access Administrador","model_proyecto1a_empresa_contratadora","grupo_admin",1,1,1,1
+"access_jefe_proyectos","Access Jefe de Proyectos","model_proyecto1a_empresa_contratadora","grupo_jefe_proyectos",1,1,1,1
+"access_analista","Access Analista","model_proyecto1a_empresa_contratadora","grupo_analista",1,0,1,1
+"access_programador","Access Programador","model_project_task","grupo_programador",1,1,0,0
+
+

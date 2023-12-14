@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="proyecto_ejemplo_1" model="project.project">
+            <field name="name">Proyecto Ejemplo 1</field>
+            <field name="description">Descripción del Proyecto Ejemplo 1</field>
+        </record>
+
+        <record id="proyecto_ejemplo_2" model="project.project">
+            <field name="name">Proyecto Ejemplo 2</field>
+            <field name="description">Descripción del Proyecto Ejemplo 2</field>
+        </record>
+
+    </data>
+</odoo>

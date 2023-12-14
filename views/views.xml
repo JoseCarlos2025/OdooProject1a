@@ -1,0 +1,122 @@
+<odoo>
+  <data>
+    <!-- Vista de formulario para Empresa Contratadora -->
+    <record id="proyecto1a.view_empresa_contratadora_form" model="ir.ui.view">
+      <field name="name">proyecto1a.empresa_contratadora.form</field>
+      <field name="model">proyecto1a.empresa_contratadora</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name" />
+              <field name="correo_empresa_contratadora" />
+              <field name="proyectos">
+                <tree>
+                  <field name="name"></field>
+                </tree>
+              </field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Vista de árbol para Empresa Contratadora -->
+    <record id="proyecto1a.view_empresa_contratadora_tree" model="ir.ui.view">
+      <field name="name">proyecto1a.empresa_contratadora.tree</field>
+      <field name="model">proyecto1a.empresa_contratadora</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="correo_empresa_contratadora" />
+          <field name="proyectos_contratados_count" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="project_project_extend" model="ir.ui.view">
+      <field name="name">project.project.extend</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <field name="user_id" position="after">
+          <field name="empresa_contratadora" />
+        </field>
+        <xpath expr="//page" position="after">
+          <page name="Tareas" string="string">
+            <field name="tareas" />
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="project_task_extend" model="ir.ui.view">
+      <field name="name">project.task.extend</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2" />
+      <field name="arch" type="xml">
+        <xpath expr="//page" position="after">
+          <page name="Subtareas" string="Subtareas">
+            <field name="subtareas" />
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="project_task_tree_extend" model="ir.ui.view">
+      <field name="name">project.task.tree.extend</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_tree2" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='kanban_state']" position="after">
+          <field name="tarea_padre" />
+          <field name="subtareas" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Acción de ventana para Empresa Contratadora -->
+    <record model="ir.actions.act_window" id="proyecto1a.empresa_contratadora_action_window">
+      <field name="name">Empresas Contratadoras</field>
+      <field name="res_model">proyecto1a.empresa_contratadora</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Acción de ventana para proyectos -->
+    <record model="ir.actions.act_window" id="proyecto1a.proyecto_action_window">
+      <field name="name">Proyecto</field>
+      <field name="res_model">project.project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="proyecto1a.tareas_action_window">
+      <field name="name">Tareas</field>
+      <field name="res_model">project.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+      id="proyecto1a.menu_root"
+      name="Proyecto1a" />
+
+    <menuitem id="proyecto1a.menu_empresa_contratadora"
+      name="Empresas Contratadoras"
+      action="proyecto1a.empresa_contratadora_action_window"
+      parent="proyecto1a.menu_root"
+      sequence="1" />
+
+    <menuitem id="proyecto1a.proyecto"
+      name="Proyectos"
+      action="proyecto1a.proyecto_action_window"
+      parent="proyecto1a.menu_root"
+      sequence="2" />
+
+    <menuitem id="proyecto1a.tareas"
+      name="Tareas"
+      action="proyecto1a.tareas_action_window"
+      parent="proyecto1a.menu_root"
+      sequence="3" />
+
+  </data>
+</odoo>
