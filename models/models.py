@@ -31,9 +31,5 @@ class Proyecto1a_Tarea(models.Model):
     subtareas = fields.One2many('project.task', 'tarea_padre', string='Subtareas', ondelete='cascade')
     tarea_padre = fields.Many2one('project.task', string='Tarea Padre', ondelete='cascade')
 
-    @api.model
-    def filtro_tareas_sin_tarea_padre(self):
-        return [('tarea_padre', '=', False)]
-
 
 

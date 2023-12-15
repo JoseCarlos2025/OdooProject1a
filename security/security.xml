@@ -2,14 +2,8 @@
 <odoo>
   <data>
 
-    <!-- GRUPO ADMIN -->
-    <record id="grupo_admin" model="res.groups">
-      <field name="name">Administrador</field>
-      <field name="comment">Rol de administrador con permisos completos.</field>
-    </record>
-
     <!-- GRUPO JEFE DE PROYECTOS -->
-    <record id="grupo_jefe_proyectos" model="res.groups">
+    <record id="grupo_jefe_proyecto" model="res.groups">
       <field name="name">Jefe de Proyectos</field>
       <field name="comment">Rol de jefe de proyectos con permisos para crear y gestionar proyectos.</field>
     </record>
@@ -26,5 +20,11 @@
       <field name="comment">Rol de programador con permisos para modificar tareas.</field>
     </record>
 
+    <!-- GRUPO ADMIN -->
+    <record id="base.user_admin" model="res.users">
+      <field name="groups_id" eval="[(4, ref('proyecto1a.grupo_jefe_proyecto'))]"></field>
+    </record>
+
   </data>
+  
 </odoo>

@@ -25,10 +25,17 @@
         'views/templates.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        'data/project_example_data.xml'
+        'security/ir.rule.xml',
+        'data/project_example_data.xml',
     ],
 
     'demo': [
         'demo/demo.xml',
     ],
+
+    'assets': {
+        'web.assets_common': [
+            'proyecto1a/static/src/scss/style1.scss',
+        ],
+    }
 }
